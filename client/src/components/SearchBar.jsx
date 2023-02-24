@@ -2,19 +2,22 @@ import React from 'react';
 
 const SearchBar = ({list, setList, query, setQuery}) => {
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
-    console.log('submitted');
-    console.log('query: ', query);
-    setList(query);
+    setList(list.filter(movie => {return movie.title.toLowerCase().includes(query)}));
+  }
+
+  const noMovieFound = () => {
+
   }
 
 
   return (
     <form onSubmit={handleSubmit} value={query}>
-      <input type="text" onChange={(event) => {setQuery(event.target.value)}}/>
+      <input type="text" onChange={event => {setQuery(event.target.value.toLowerCase())}}/>
       <input type="submit" value="Find my movie!" />
     </form>
+    <div>No movie found by that name</div>
   )
 };
 
