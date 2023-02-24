@@ -1,21 +1,13 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
 
-const ListMovies = () => {
-  var movies = [
-    {title: 'Mean Girls'},
-    {title: 'Hackers'},
-    {title: 'The Grey'},
-    {title: 'Sunshine'},
-    {title: 'Ex Machina'},
-  ];
+const ListMovies = ({list, setList}) => {
 
-  const listMovies = movies.map((movie) =>
-    <div>{movie.title}</div>
+  const listMovies = list.map((movie) =>
+    <div key={movie.title}>{movie.title}</div>
     );
-  // return (<ul>{listMovies}</ul>);
+
   return (
-    <ul>{listMovies}</ul>
+    <div >{listMovies}</div>
   );
 }
 

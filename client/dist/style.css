@@ -1,3 +1,8 @@
 body {
   font-family: sans-serif, arial;
 }
+
+.movies {
+  color: green;
+  font-size: 25px;
+}
