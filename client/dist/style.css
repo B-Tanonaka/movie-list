@@ -1,8 +1,47 @@
 body {
-  font-family: sans-serif, arial;
+  font-family: 'Roboto', 'Avenir', 'Futura', sans-serif;
+}
+
+
+.listMovies {
+  padding: 20px 40px 30px 40px;
+  margin-top: -1px;
 }
 
 .movies {
-  color: green;
-  font-size: 25px;
+  border: solid #b8b8b8;
+  border-width: 1px;
+  max-width: 300px;
+  min-width: 100px;
+  color: #000;
+  font-size: 18px;
+
+  padding: 20px 100px 20px 30px;
+  margin-top: -1px;
+}
+
+.search-container {
+  padding: 60px 20px 30px 40px;
+  width: 100%;
+  margin: auto;
+
+}
+
+.search {
+  background-color: #ffffff;
+  border: solid #b8b8b8;
+  border-width: 1px;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+.search-textbox {
+  border-radius: 3px 0 0 3px;
+  margin-right: -1px;
+}
+
+.search-button {
+  font-weight: bold;
+  border-radius: 0 3px 3px 0;
+  margin-left: -1px;
 }

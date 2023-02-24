@@ -1,7 +1,6 @@
 import React from 'react';
 import ListMovies from './ListMovies.jsx';
 import SearchBar from './SearchBar.jsx'
-import filterList from './FilterList.jsx'
 import { useState } from 'react';
 
 const App = () => {
@@ -13,16 +12,18 @@ const App = () => {
     {title: 'Sunshine'},
     {title: 'Ex Machina'},
   ];
-
+  const [allMovies, setAllMovies] = useState(movies);
   const [list, setList] = useState(movies);
-  const [query, setQuery] = useState('');
-
 
   return (
   <div>
-    <div><h1>MovieList</h1></div>
-    <div><SearchBar list={list} setList={setList} query={query} setQuery={setQuery} filterList={filterList}/></div>
-    <div className='movies'><ListMovies list={list} setList={setList} movie={movies}/></div>
+    <div>
+      <h1>MovieList</h1>
+    </div>
+    <div>
+      <SearchBar list={list} setList={setList} allMovies={allMovies}/>
+    </div>
+    <div><ListMovies list={list} setList={setList} movie={movies}/></div>
   </div>
   );
 }

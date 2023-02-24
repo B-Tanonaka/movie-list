@@ -1,23 +1,47 @@
 import React from 'react';
+import {useState} from 'react';
 
-const SearchBar = ({list, setList, query, setQuery}) => {
+const SearchBar = ({list, setList, allMovies}) => {
+
+  let query = '';
+
+  const handleTyping = event => {
+    query = event.target.value.toLowerCase();
+    if (query === '') {
+      setList(allMovies);
+    }
+    console.log(query);
+  }
 
   const handleSubmit = event => {
     event.preventDefault();
+    console.log("list: ", list);
+    console.log('allMovies: ', allMovies);
+    if (list.length < allMovies.length) {
+      setList(allMovies);
+    }
+    // console.log('list: ', list);
+    // console.log('allMovies: ', allMovies);
+    // console.log('list: ', list);
     setList(list.filter(movie => {return movie.title.toLowerCase().includes(query)}));
-  }
-
-  const noMovieFound = () => {
 
   }
+
+  const clearSearch = event => {
+    $(".search-textbox").html();
+  }
+
+  // const noMovieFound = () => {
+
+  // }
 
 
   return (
-    <form onSubmit={handleSubmit} value={query}>
-      <input type="text" onChange={event => {setQuery(event.target.value.toLowerCase())}}/>
-      <input type="submit" value="Find my movie!" />
+    <form className='search-container'>
+      <input className="search search-textbox" placeholder='Search...' type="text" onClick={clearSearch} onChange={handleTyping}/>
+      <button className="search search-button" type="submit" onClick={handleSubmit}>Find my movie!</button>
     </form>
-    <div>No movie found by that name</div>
+    // <div>No movie found by that name</div>
   )
 };
 
