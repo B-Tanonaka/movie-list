@@ -19,29 +19,21 @@ module.exports = {
     }
     headers['Content-Type'] = 'application/json';
     res.writeHead(200, headers);
-    console.log('GET message successful')
-    res.end('GET message sucessful');
+    res.end(JSON.stringify(response));
   });
   },
 
   post: (req, res) => {
-    let body = '';
-    req.on('data', (chunk) => {
-      body += chunk;
-    }).on('end', () => {
-      let message = JSON.parse(body);
-    });
+    // console.log(req);
+    // console.log('req.body: ', req.body);
 
-    models.create(message, (err, response) => {
+    models.create(req.body, (err, response) => {
       if (err) {
-        headers['Content-Type'] = 'plain/text';
-        res.writeHead(404, headers);
+        console.log(err);
         res.end('Unable to POST message');
+        return;
       }
-
-      headers['Content-Type'] = 'application/json';
-      res.writeHead(201, headers);
-      res.end(JSON.stringify(message));
+      res.end(JSON.stringify(req.body));
     });
   }
 }
