@@ -16,7 +16,7 @@ const ListMovies = ({list, setList}) => {
 
   const listMovies = list.map((movie) =>
     <div>
-      <div className='movies' key={movie.title}>{movie.title}</div>
+      <div className='movies' key={movie.movie}>{movie.movie}</div>
       <button onClick={handleSwitch}>Watched</button>
     </div>
   );

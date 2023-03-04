@@ -1,6 +1,7 @@
 import React from 'react';
+import axios from 'axios';
 
-const AddMovie = ({list, setList, setAllMovies}) => {
+const AddMovie = ({list, setList, setAllMovies, serverURL}) => {
   let query = '';
 
   const handleInput = event => {
@@ -9,11 +10,25 @@ const AddMovie = ({list, setList, setAllMovies}) => {
 
   const handleAdd = event => {
     event.preventDefault();
-    let newList = [...list];
-    newList.push({title: query});
-    setAllMovies(newList);
-    setList(newList);
+
+
+    axios.post(serverURL, {
+      movie: query
+    }).then((response) => {
+      let newList = [...list];
+      newList.push(response.data);
+      setAllMovies(newList);
+      setList(newList);
+    })
   }
+
+  // const handleAdd = event => {
+  //   event.preventDefault();
+  //   let newList = [...list];
+  //   newList.push({title: query});
+  //   setAllMovies(newList);
+  //   setList(newList);
+  // }
 
   return (
     <div>
