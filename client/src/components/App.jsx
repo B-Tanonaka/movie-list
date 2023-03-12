@@ -15,6 +15,7 @@ const App = () => {
   useEffect(() => {
     axios.get(serverURL).then((response) => {
       setList(response.data);
+      setAllMovies(response.data);
     })
   }, []);
 

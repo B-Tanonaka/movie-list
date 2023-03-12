@@ -11,7 +11,6 @@ const AddMovie = ({list, setList, setAllMovies, serverURL}) => {
   const handleAdd = event => {
     event.preventDefault();
 
-
     axios.post(serverURL, {
       movie: query
     }).then((response) => {
@@ -22,21 +21,11 @@ const AddMovie = ({list, setList, setAllMovies, serverURL}) => {
     })
   }
 
-  // const handleAdd = event => {
-  //   event.preventDefault();
-  //   let newList = [...list];
-  //   newList.push({title: query});
-  //   setAllMovies(newList);
-  //   setList(newList);
-  // }
-
   return (
-    <div>
-      <form>
-        <input placeholder='Add movie...' type="text" onChange={handleInput}/>
-        <button type="submit" onClick={handleAdd}>Add movie</button>
+      <form class="addMovie-container">
+        <input class="query query-textbox" placeholder="What's good..." type="text" onChange={handleInput}/>
+        <button class="query query-button" type="submit" onClick={handleAdd}>Add movie</button>
       </form>
-    </div>
   )
 };
 

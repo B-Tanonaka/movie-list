@@ -2,32 +2,59 @@ body {
   font-family: 'Roboto', 'Avenir', 'Futura', sans-serif;
 }
 
+/**** app ****/
+
+#app {
+  display: block;
+  min-width: 450px;
+  max-width: 600px;
+}
+
+/**** movie list ****/
 
 .listMovies {
   padding: 20px 40px 30px 40px;
   margin-top: -1px;
 }
 
-.movies {
+.movie-container {
+  display: flex;
+  justify-content: space-between;
   border: solid #b8b8b8;
   border-width: 1px;
   max-width: 300px;
   min-width: 100px;
   color: #000;
-  font-size: 18px;
-
   padding: 20px 100px 20px 30px;
   margin-top: -1px;
 }
 
-.search-container {
-  padding: 60px 20px 30px 40px;
-  width: 100%;
-  margin: auto;
-
+.movie {
+  display: inline-flex;
+  font-size: 18px;
+  margin-right: auto;
 }
 
-.search {
+.watched-button {
+  display: inline-flex;
+  margin-left: auto;
+}
+
+/**** search boxes ****/
+
+.addMovie-container {
+  display: inline-flex;
+  padding: 0 0 20px 50px;
+  margin: auto;
+}
+
+.search-container {
+  display: inline-flex;
+  padding-left: 40px;
+  margin: auto;
+}
+
+.query {
   background-color: #ffffff;
   border: solid #b8b8b8;
   border-width: 1px;
@@ -35,12 +62,15 @@ body {
   padding: 5px 10px;
 }
 
-.search-textbox {
+.query-textbox {
+  height: 9px;
   border-radius: 3px 0 0 3px;
   margin-right: -1px;
+  width: 100px;
 }
 
-.search-button {
+.query-button {
+  font-size: 8px;
   font-weight: bold;
   border-radius: 0 3px 3px 0;
   margin-left: -1px;

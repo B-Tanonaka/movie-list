@@ -14,16 +14,14 @@ const Search = ({list, setList, allMovies}) => {
 
   const handleSearch = event => {
     event.preventDefault();
-    setList(list.filter(movie => {return movie.title.toLowerCase().includes(query)}));
+    setList(list.filter(movie => {return movie.movie.toLowerCase().includes(query)}));
   }
 
   return (
-    <div>
       <form className='search-container'>
-        <input className="search search-textbox" placeholder='Search...' type="text" onChange={handleInput}/>
-        <button className="search search-button" type="submit" onClick={handleSearch}>Find my movie!</button>
+        <input className="query query-textbox" placeholder='Search...' type="text" onChange={handleInput}/>
+        <button className="query query-button" type="submit" onClick={handleSearch}>Find my movie!</button>
       </form>
-    </div>
   )
 };
 
